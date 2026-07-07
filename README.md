@@ -112,9 +112,20 @@ Uses a small Node bridge (`whatsapp_server.js`, on `localhost:8765`) wrapping `w
 
 ---
 
+## 🌐 Translation (Hebrew → English)
+
+The Israeli job market runs in **Hebrew** — most posts on AllJobs, and nearly all Telegram/WhatsApp group messages, are Hebrew. This tool **auto-translates every scraped post Hebrew → English** so you can scan the whole market in one language.
+
+- Powered by **Google Translate** via [`deep-translator`](https://pypi.org/project/deep-translator/) (`source="iw"` → `target="en"`), no API key required.
+- **Both versions are kept** — the original Hebrew *and* the English translation — so nothing is lost in translation and you can always check the source text.
+- **Long posts are chunked** before translating to stay within limits, then reassembled.
+- Works across **all three channels** (AllJobs, Telegram, WhatsApp). A quick self-test runs on startup and falls back gracefully if the translation service is unreachable.
+
+> Want a different target language? Change `target="en"` in `app.py`'s `get_translator()` / `translate_text()` to any language `deep-translator` supports (e.g. `ru`, `fr`).
+
 ## Export
 
-Every channel exports to **Excel** (`telegram_jobs_*.xlsx`, `whatsapp_jobs_*.xlsx`); AllJobs also does CSV/JSON. All UTF-8, Hebrew-translated, Excel-safe.
+Every channel exports to **Excel** (`telegram_jobs_*.xlsx`, `whatsapp_jobs_*.xlsx`); AllJobs also does CSV/JSON. All UTF-8, **Hebrew-translated**, Excel-safe.
 
 ---
 
