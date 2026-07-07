@@ -1,0 +1,21 @@
+# ── Secrets & sessions — NEVER commit ─────────────────────────
+.env
+*.session
+*.session-journal
+telegram.session
+.wwebjs_auth/
+.wwebjs_cache/
+
+# ── Dependencies ──────────────────────────────────────────────
+node_modules/
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# ── Outputs / OS ──────────────────────────────────────────────
+*.xlsx
+*.csv
+!requirements.txt
+.DS_Store
+.claude/
